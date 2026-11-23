@@ -19,11 +19,19 @@
       "package": "com.fadi7ay.fittrack"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "output": "single",
+      "name": "FitTrack",
+      "shortName": "FitTrack",
+      "themeColor": "#0E1014",
+      "backgroundColor": "#0E1014"
     },
     "plugins": [
       "expo-router"
     ],
-    "scheme": "workout"
+    "scheme": "workout",
+    "experiments": {
+      "baseUrl": "/Workout"
+    }
   }
 }

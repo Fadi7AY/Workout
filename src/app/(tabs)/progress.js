@@ -1,17 +1,15 @@
 import { useState } from 'react';
-import { Alert, Pressable, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { Body, Button, C, Card, Chip, Empty, Field, LineChart, Muted, Row, Screen, Stat, Title } from '../../components/ui';
 import { getExercise } from '../../data/exercises';
 import { fmt, num, prettyDate, today } from '../../lib/calc';
+import { confirmAction, notify } from '../../lib/dialog';
 import { useStore } from '../../lib/store';
 
 const shortDate = (iso) => iso.slice(5).replace('-', '/');
 
 function confirm(title, onYes) {
-  Alert.alert(title, 'This cannot be undone.', [
-    { text: 'Cancel', style: 'cancel' },
-    { text: 'Delete', style: 'destructive', onPress: onYes },
-  ]);
+  confirmAction(title, 'This cannot be undone.', 'Delete', onYes);
 }
 
 export default function Progress() {
@@ -24,7 +22,7 @@ export default function Progress() {
   const save = () => {
     const w = num(weight);
     if (!w || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-      Alert.alert('Check your entry', 'Enter a weight and a date in YYYY-MM-DD format.');
+      notify('Check your entry', 'Enter a weight and a date in YYYY-MM-DD format.');
       return;
     }
     addMeasurement({ date, weight: w, bodyFat: num(fat) });

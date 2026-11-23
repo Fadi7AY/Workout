@@ -111,7 +111,13 @@ These values are estimates and should be adjusted to real-world progress and ind
 
 > **Build automation:** the repository includes a [Build Android APK workflow](.github/workflows/android-apk.yml) that runs on pushes to `main`. You can also start it manually from **Actions → Build Android APK → Run workflow**. Release availability depends on a successful build.
 
-### Option B — Run from source
+### Option B — Open it in the browser (GitHub Pages)
+
+Open **https://fadi7ay.github.io/Workout/** on any phone or computer. On a phone, use **Add to Home Screen** so it opens like an app. Your data is saved in that browser.
+
+> **Deployment:** the [Deploy to GitHub Pages workflow](.github/workflows/pages.yml) publishes the web version when app files change on `main`. One-time setup: **Settings → Pages → Source → GitHub Actions**. A private repository needs a paid GitHub plan for Pages.
+
+### Option C — Run from source
 
 **Requirements:** Node.js, npm, and Expo Go or a configured Android/iOS simulator.
 

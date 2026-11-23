@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Alert } from 'react-native';
 import { Body, Button, C, Card, Chips, Field, Muted, Row, Screen, Stat, Title } from '../../components/ui';
 import { ACTIVITY_LEVELS, computePlan, fmt, GOAL_LABEL } from '../../lib/calc';
+import { confirmAction, notify } from '../../lib/dialog';
 import { useStore } from '../../lib/store';
 
 export default function Profile() {
@@ -14,22 +14,19 @@ export default function Profile() {
 
   const save = () => {
     if (!preview.weight || !preview.height) {
-      Alert.alert('Missing info', 'Please enter at least your height and weight.');
+      notify('Missing info', 'Please enter at least your height and weight.');
       return;
     }
     if (preview.bodyFat != null && (preview.bodyFat < 3 || preview.bodyFat > 60)) {
-      Alert.alert('Check body fat', 'Body fat percentage should be between 3 and 60.');
+      notify('Check body fat', 'Body fat percentage should be between 3 and 60.');
       return;
     }
     saveProfile(form);
-    Alert.alert('Saved', 'Your profile and plan have been updated.');
+    notify('Saved', 'Your profile and plan have been updated.');
   };
 
   const reset = () =>
-    Alert.alert('Reset all data?', 'This deletes your profile, measurements and workouts.', [
-      { text: 'Cancel', style: 'cancel' },
-      { text: 'Reset', style: 'destructive', onPress: resetAll },
-    ]);
+    confirmAction('Reset all data?', 'This deletes your profile, measurements and workouts.', 'Reset', resetAll);
 
   return (
     <Screen>

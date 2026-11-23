@@ -1,10 +1,11 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { Alert, Pressable, Text, TextInput, View } from 'react-native';
+import { Pressable, Text, TextInput, View } from 'react-native';
 import { Body, Button, C, Card, Chip, Field, Muted, Row, Screen, Title } from '../components/ui';
 import { EXERCISES, getExercise, MUSCLES } from '../data/exercises';
 import { getProgram } from '../data/programs';
 import { num, today } from '../lib/calc';
+import { notify } from '../lib/dialog';
 import { useStore } from '../lib/store';
 
 const emptySet = (reps = '') => ({ reps, weight: '' });
@@ -57,7 +58,7 @@ export default function LogWorkout() {
       }))
       .filter((x) => x.sets.length);
     if (!cleaned.length) {
-      Alert.alert('Nothing to save', 'Add at least one exercise with reps.');
+      notify('Nothing to save', 'Add at least one exercise with reps.');
       return;
     }
     addWorkout({ date: today(), title: title.trim() || 'Workout', exercises: cleaned });
