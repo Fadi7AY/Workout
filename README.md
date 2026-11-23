@@ -23,7 +23,17 @@ A mobile workout and nutrition tracker built with **Expo (React Native)** and **
 
 All data is stored on the device with AsyncStorage.
 
-## Run it
+## Install on Android (built by GitHub)
+
+Every push to `main` starts the **Build Android APK** workflow (`.github/workflows/android-apk.yml`). It takes about 10–20 minutes.
+
+1. On your phone, open the repo's **Releases** page. You need to be logged in to GitHub because the repo is private.
+2. Download **FitTrack.apk** from the latest release and open it.
+3. If Android asks, allow "Install unknown apps" for your browser.
+
+To rebuild without pushing, go to **Actions → Build Android APK → Run workflow**.
+
+## Run it locally (development)
 
 ```bash
 npm install
