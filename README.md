@@ -1,58 +1,183 @@
-# FitTrack 💪
+<div align="center">
 
-A mobile workout and nutrition tracker built with **Expo (React Native)** and **Expo Router**.
+<img src="assets/readme-banner.svg" alt="FitTrack — train smarter, track everything" width="100%" />
 
-## Features
+<br/>
 
-- **Profile:** height, weight, age, sex, body fat %, target weight and activity level.
-  - Works out BMI, lean mass and body-fat category.
-  - Calculates BMR with Katch-McArdle when you enter body fat %, otherwise Mifflin-St Jeor.
-  - Gives your maintenance calories (TDEE), a daily calorie target, macros, water intake and an estimated number of weeks to reach your target.
-- **Home dashboard:** progress toward your target weight, key stats, today's nutrition and your next workout.
-- **Workouts:**
-  - 5 programs (Beginner Full Body, Push/Pull/Legs, Upper/Lower, Fat-Burn Circuit, Home – No Equipment). The app recommends one based on your goal.
-  - A library of 35 exercises you can search or filter by muscle group. Each has step-by-step instructions and a coach tip.
-- **Workout logger:** log sets, reps and weight. Program days are filled in for you, and the app shows the weight you used last time.
-- **Progress:**
-  - Weight and body-fat charts with a target line, plus your measurement history.
-  - Personal records and a workout log with total volume.
-- **Diet:**
-  - Daily meal plans (breakfast, lunch, snack, dinner) scaled to your calorie target.
-  - 6 diet styles: Balanced, High protein, Mediterranean, Low carb, Vegetarian and Vegan.
-  - Shuffle to get a new plan, plus tips for your goal.
+**Your training. Your nutrition. Your progress. One place.**
 
-All data is stored on the device with AsyncStorage.
+A mobile fitness companion that turns your goals into actionable workout plans, tailored nutrition guidance, and measurable progress.
 
-## Install on Android (built by GitHub)
+[![Expo](https://img.shields.io/badge/Expo-58-101827?style=for-the-badge&logo=expo&logoColor=white)](https://expo.dev/)
+[![React Native](https://img.shields.io/badge/React_Native-0.88-101827?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactnative.dev/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-101827?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Platform](https://img.shields.io/badge/Android_%7C_iOS-Mobile-101827?style=for-the-badge&logo=android&logoColor=59e7ab)](#getting-started)
 
-Every push to `main` starts the **Build Android APK** workflow (`.github/workflows/android-apk.yml`). It takes about 10–20 minutes.
+<br/>
 
-1. On your phone, open the repo's **Releases** page. You need to be logged in to GitHub because the repo is private.
-2. Download **FitTrack.apk** from the latest release and open it.
-3. If Android asks, allow "Install unknown apps" for your browser.
+[**📲 Download Android APK**](https://github.com/Fadi7AY/Workout/releases) · [**🚀 Quick start**](#getting-started) · [**✨ Features**](#features) · [**🧩 Architecture**](#project-structure)
 
-To rebuild without pushing, go to **Actions → Build Android APK → Run workflow**.
+</div>
 
-## Run it locally (development)
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🏠 Your fitness dashboard
+See your target-weight journey, key metrics, today's nutrition and your upcoming workout at a glance.
+
+</td>
+<td width="50%" valign="top">
+
+### 🏋️ Training plans that fit
+Choose from **5 programs**, from Beginner Full Body and Push/Pull/Legs to Upper/Lower, Fat-Burn Circuit and at-home workouts.
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+### 💪 Exercise library & workout log
+Explore **35 exercises**, filter by muscle group, follow step-by-step coaching cues, and record sets, reps and weights with previous-weight reference.
+
+</td>
+<td valign="top">
+
+### 🥗 Nutrition made practical
+Generate daily meal plans around your calorie target, shuffle for variety and choose from **6 diet styles**, including high-protein, Mediterranean, vegetarian and vegan.
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+### 📈 Progress you can see
+Follow weight and body-fat trends, review measurement history, check personal records and track workout volume.
+
+</td>
+<td valign="top">
+
+### 🎯 Goals backed by calculations
+Use your profile to estimate BMI, lean mass, BMR, TDEE, calories, macros, hydration and your goal timeline.
+
+</td>
+</tr>
+</table>
+
+## 📱 A day with FitTrack
+
+```mermaid
+flowchart LR
+    A["👤 Set your profile"] --> B["🎯 Calculate goals"]
+    B --> C["🏋️ Choose a program"]
+    C --> D["📝 Log a workout"]
+    B --> E["🥗 Plan meals"]
+    D --> F["📈 Review progress"]
+    E --> F
+    F --> C
+```
+
+> **Designed for everyday consistency:** get a clear plan, log the work, then use your history to see how far you've come.
+
+## 🧠 Personalized fitness calculations
+
+| Metric | How FitTrack approaches it |
+| :--- | :--- |
+| **Body composition** | BMI, estimated lean mass, and body-fat category |
+| **Basal metabolic rate** | Katch–McArdle when body-fat % is supplied; otherwise Mifflin–St Jeor |
+| **Daily energy** | Estimated maintenance calories (TDEE) based on activity |
+| **Goal planning** | Daily calorie target and estimated weeks to target weight |
+| **Daily targets** | Suggested macros and water intake |
+
+These values are estimates and should be adjusted to real-world progress and individual needs.
+
+## 📦 Getting started
+
+### Option A — Install the Android APK
+
+<div align="center">
+
+[![Latest release](https://img.shields.io/badge/GET_THE_LATEST-ANDROID_APK-29c995?style=for-the-badge&logo=android&logoColor=white)](https://github.com/Fadi7AY/Workout/releases/latest)
+
+</div>
+
+1. Open [**Releases**](https://github.com/Fadi7AY/Workout/releases) on your Android phone.
+2. Download **FitTrack.apk** from the latest release, if an APK is attached.
+3. Open the APK and follow Android's installation prompts. You may need to allow installation from your browser or file manager.
+
+> **Build automation:** the repository includes a [Build Android APK workflow](.github/workflows/android-apk.yml) that runs on pushes to `main`. You can also start it manually from **Actions → Build Android APK → Run workflow**. Release availability depends on a successful build.
+
+### Option B — Run from source
+
+**Requirements:** Node.js, npm, and Expo Go or a configured Android/iOS simulator.
 
 ```bash
+git clone https://github.com/Fadi7AY/Workout.git
+cd Workout
 npm install
 npx expo start
 ```
 
-Scan the QR code with the **Expo Go** app on your phone (Android or iOS), or press `a` to open an Android emulator.
+Scan the development QR code with **Expo Go** on a compatible device, or press `a` in the terminal to launch an Android emulator. Native builds may be needed when Expo Go does not support the project's SDK or dependencies.
 
-## Project structure
+## 🛠️ Built with
 
+<div align="center">
+
+![Expo](https://img.shields.io/badge/Expo-101827?style=flat-square&logo=expo&logoColor=white)
+![React Native](https://img.shields.io/badge/React_Native-101827?style=flat-square&logo=react&logoColor=61DAFB)
+![React](https://img.shields.io/badge/React-101827?style=flat-square&logo=react&logoColor=61DAFB)
+![Expo Router](https://img.shields.io/badge/Expo_Router-101827?style=flat-square&logo=expo&logoColor=white)
+![AsyncStorage](https://img.shields.io/badge/AsyncStorage-101827?style=flat-square&logo=react&logoColor=59e7ab)
+![React Native SVG](https://img.shields.io/badge/React_Native_SVG-101827?style=flat-square&logo=svg&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-101827?style=flat-square&logo=githubactions&logoColor=2088FF)
+
+</div>
+
+## 🧩 Project structure
+
+```text
+Workout/
+├── src/
+│   ├── app/
+│   │   ├── (tabs)/          # Home, Workouts, Progress, Diet, Profile
+│   │   ├── exercise/[id].js # Exercise details
+│   │   └── log-workout.js   # Workout logging
+│   ├── components/
+│   │   └── ui.js            # Shared UI and SVG chart
+│   ├── data/                # Exercises, programs, meals
+│   └── lib/                 # Fitness calculations and persistent store
+├── assets/                  # Icons and README artwork
+├── .github/workflows/
+│   └── android-apk.yml     # Android build automation
+├── app.json                 # Expo app configuration
+└── package.json
 ```
-src/
-  app/            # screens (Expo Router)
-    (tabs)/       # Home, Workouts, Progress, Diet, Profile
-    exercise/[id].js
-    log-workout.js
-  components/ui.js  # shared UI + SVG line chart
-  data/           # exercises, programs, meals
-  lib/            # calculations + persistent store
-```
 
-> Nutrition suggestions are general guidance, not medical advice.
+### 🔒 Storage & privacy
+
+FitTrack stores app data **locally on your device using AsyncStorage**. This project does not describe a cloud synchronization or account-backup feature.
+
+## 🤝 Contributing
+
+Suggestions and improvements are welcome. [Open an issue](https://github.com/Fadi7AY/Workout/issues) to discuss a bug or feature, or submit a pull request with a focused change.
+
+## 📄 License
+
+See the [LICENSE](LICENSE) file for the repository's license terms.
+
+---
+
+<div align="center">
+
+### 💚 Every rep counts. Every day adds up.
+
+Built by [**Fadi7AY**](https://github.com/Fadi7AY) · [⭐ Star FitTrack on GitHub](https://github.com/Fadi7AY/Workout)
+
+<sub>FitTrack provides general fitness and nutrition guidance, not medical advice.</sub>
+
+</div>
