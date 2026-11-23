@@ -3,6 +3,14 @@ name: Build Android APK
 on:
   push:
     branches: [main]
+    # Only rebuild when something that ends up in the app changes.
+    paths:
+      - 'src/**'
+      - 'assets/**'
+      - 'app.json'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/android-apk.yml'
   workflow_dispatch:
 
 permissions:
